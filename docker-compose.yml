@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14
+    restart: always
+    env_file:
+      - docker-compose.env
+
+  app:
+    build: .
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    env_file:
+      - docker-compose.env
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
