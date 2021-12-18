@@ -1,5 +1,5 @@
 # Project App
-Simple web-application written in golang
+Simple web-application written in Go
 
 # Description
 This app only does two things, but it does them perfectly. It can calculate the square of an integer and it can also block the user. Yes, it can block you.
