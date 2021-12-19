@@ -19,7 +19,7 @@ type BlacklistedIP struct {
 	Path string `gorm:"type:varchar(2048)"`
 }
 
-// ConnectDB connect to db
+// Connect to db
 func ConnectDB() error {
 	var err error
 	p := GetEnv("POSTGRES_PORT")
@@ -62,7 +62,7 @@ func IsBlacklisted(ip string) bool {
 	return blacklistedIP.IP != ""
 }
 
-// Put IP, Path and DateTime to the database
+// Put IP, Path to the database. DateTime will be automatically added
 func BlacklistIP(ip string, path string) {
 	var blacklistedIP BlacklistedIP
 	blacklistedIP.IP = ip

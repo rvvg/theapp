@@ -16,7 +16,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// check if query looks like 'number quals x' and responds to the URL like 'http://host/?n=x' and return n*n
+	// Responds to the URL like 'http://host/?n=x' and return n*n
 	app.Get("/", func(c *fiber.Ctx) error {
 		n := c.Query("n")
 		if num, err := strconv.Atoi(n); err == nil {

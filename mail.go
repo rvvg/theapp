@@ -7,7 +7,7 @@ import (
 	gomail "gopkg.in/mail.v2"
 )
 
-// SendMail send mail
+// Send e-mail with client details
 func SendMail(ip string) error {
 	m := gomail.NewMessage()
 	m.SetHeader("From", "blacklist@example.com")
