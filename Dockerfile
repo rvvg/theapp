@@ -16,4 +16,3 @@ EXPOSE 3000
 USER nonroot:nonroot
 
 ENTRYPOINT ["/main"]
-
