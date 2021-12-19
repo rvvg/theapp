@@ -1,0 +1,27 @@
+apiVersion: kubegres.reactive-tech.io/v1
+kind: Kubegres
+metadata:
+  name: app-db
+
+spec:
+
+  replicas: 2
+  image: postgres:14.1
+
+  database:
+    size: 11Mi
+
+  customConfig: app-db-custom-config
+
+  env:
+    - name: POSTGRES_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: app-db-secret
+          key: superUserPassword
+
+    - name: POSTGRES_REPLICATION_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: app-db-secret
+          key: replicationUserPassword
