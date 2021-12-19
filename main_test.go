@@ -9,7 +9,7 @@ import (
 // TestCalc send http request to the app and check if the response is correct
 func TestCalc(t *testing.T) {
 	// Send http request to the app
-	res, err := http.Get("http://localhost:3000/?n=2")
+	res, err := http.Get("http://app:3000/?n=2")
 
 	if err != nil {
 		t.Errorf("Error: %s", err)
@@ -36,7 +36,7 @@ func TestCalc(t *testing.T) {
 
 func TestBlacklisted(t *testing.T) {
 	// Send http request to the app
-	res, err := http.Get("http://localhost:3000/blacklisted")
+	res, err := http.Get("http://app:3000/blacklisted")
 	if err != nil {
 		t.Errorf("Error: %s", err)
 	}

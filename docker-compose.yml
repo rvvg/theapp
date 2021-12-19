@@ -17,9 +17,28 @@ services:
       - 3000:3000
     env_file:
       - docker-compose.env
+    volumes:
+      - cache:/go/pkg
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile-tests
+    depends_on:
+      - app
+    entrypoint: ["/bin/sh","-c"]
+    command:
+    - |
+      cd /app 
+      CGO_ENABLED=0 go test
+    volumes:
+      - cache:/go/pkg
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+
+volumes:
+  cache:
